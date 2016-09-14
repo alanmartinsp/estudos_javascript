@@ -10,26 +10,26 @@ function definirNovoPaciente(paciente){
 			"</tr>";	
 }
 
-function definirCampos(form){
+function definirCampos(){
 	
-	var nome = ;
-	var peso = ;
-	var altura = ;
+	var nome = document.getElementById('campo-nome').value;
+	var peso = document.getElementById('campo-peso').value;
+	var altura = document.getElementById('campo-altura').value;
 	
 	var paciente = {
 		'nome' : nome,
 		'peso' : peso,
 		'altura' : altura
 	}
-
+	
 	return paciente;
 }
 
 butaoAdicionar.addEventListener("click", function(event){
 	
 	event.preventDefault();
-
-	var novoPaciente = definirCampos(document.getElementByTag("form"));
+	
+	var novoPaciente = definirCampos();
 
 	table.innerHTML = table.innerHTML + definirNovoPaciente(novoPaciente);
 });
