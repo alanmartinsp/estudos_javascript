@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Meus pacientes</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/alura.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+    <main id="app" class="container">
+      <section>
+        <h2>Adicionar novo paciente</h2>  
+        <form>
+          <fieldset>
+            <label for="nome">Nome:</label>
+            <input v-model="campos.nome" id="campo-nome" type="text" placeholder="digite o nome do seu paciente">
+          </fieldset>
+          <fieldset class="campo-medio">
+            <label for="peso">Peso:</label>
+            <input id="campo-peso" v-model="campos.peso" type="text" placeholder="digite o peso do seu paciente">
+          </fieldset>
+          <fieldset class="campo-medio">
+            <label for="altura">Altura:</label>
+            <input id="campo-altura" type="text" v-model="campos.altura" placeholder="digite a altura do seu paciente">
+          </fieldset>
+          <button id="adicionar-paciente" @click.prevent="adicionarParticipante" class="btn-primary botao bto-principal">Adicionar</button>
+        </form>
+      </section>
+      <section>
+        <table class="table">
+          <tr>
+            <th>Nome</th>
+            <th>Peso(kg)</th>
+            <th>Altura(m)</th>
+            <th>IMC</th>
+            <th></th>
+          </tr>
+          <tbody>
+            <tr v-for="paciente in pacientes">
+              <td>{{ paciente.nome }}</td>
+              <td>{{ paciente.peso }}</td>
+              <td>{{ paciente.altura }}</td>
+              <td>{{ paciente.imc }}</td>
+              <td><button type="button" class="btn btn-danger" @click="removerPaciente(paciente)">
+                <i class="glyphicon glyphicon-trash"></i> Remover</button></td>
+            </tr>
+        </tbody>
+
+        </table>
+      </section>
+    </main>
+  </body>
+  <script src="js/vue.js"></script>
+  <script type="text/javascript">
+      
+      var app = new Vue({
+        
+        el: '#app',
+
+        data: {
+
+            campos : {
+                nome : '',
+                peso : '',
+                altura : '',
+                imc : ''
+            },
+
+            pacientes: []
+        },
+
+        methods: {
+
+            adicionarParticipante: function(){
+                this.pacientes.push({
+                  nome: this.campos.nome, 
+                  peso: this.campos.peso,
+                  altura: this.campos.altura,
+                  imc: this.campos.peso / (this.campos.altura * this.campos.altura)
+                });
+
+                this.limparCampos(this.campos);
+            },
+
+            removerPaciente: function(item){
+                this.pacientes = this.pacientes.filter(function(campo){
+                    return item != campo ? true : false;
+                });
+            },
+
+            limparCampos: function(campos){
+                campos.nome = '', 
+                campos.peso = '',
+                campos.altura = ''
+            }
+        }
+      });
+  </script>
+</html>
