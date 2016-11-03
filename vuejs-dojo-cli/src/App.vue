@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <form-favorito @favoritoinformado="cadastrarFavorito"></form-favorito>
-    <lista-favorito></lista-favorito>
+    <lista-favorito :favoritos="favoritos"></lista-favorito>
   </div>
 </template>
 
@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     cadastrarFavorito: function (campos) {
-      console.log('Adicionada')
+      console.log(campos)
       this.favoritos.push(campos)
     }
   }
