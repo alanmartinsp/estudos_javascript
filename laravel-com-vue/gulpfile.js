@@ -32,11 +32,11 @@ elixir(mix => {
     mix.copy('node_modules/font-awesome/fonts', 'public/build/fonts');
 
     //Versionamos os css para que o brownser tenha sempre que atualizar os arquivos
-    mix.version([
-    	'public/css/vendor.css',
-    	'public/css/app.css',
-    	'public/js/app.js'
-    ]);
+    // mix.version([
+    // 	'public/css/vendor.css',
+    // 	'public/css/app.css',
+    // 	'public/js/app.js'
+    // ]);
 
     //Atualiza página automaticamente
     mix.browserSync({

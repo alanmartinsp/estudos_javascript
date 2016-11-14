@@ -8,8 +8,12 @@
 
     </head>
     <body>
-        <div class="container">
-            <h1>  <i class = "fa fa-fw fa-github"></i>  Curso Laravel e Vue.js</h1>
+        <div class="container" id="app">
+            <h1> 
+                <i class = "fa fa-fw fa-github"></i>
+                Curso Laravel e Vue.js
+            </h1>
+            <primeiro-componente></primeiro-componente>
         </div>
     </body>
 </html>
