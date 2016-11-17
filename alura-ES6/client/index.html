@@ -11,7 +11,7 @@
     
     <h1 class="text-center">Negociações</h1>
     
-    <form class="form">
+    <form class="form" onsubmit="negociacao.adicionar(event)">
         
         <div class="form-group">
             <label for="data">Data</label>
@@ -59,6 +59,16 @@
         </tfoot>
     </table>
     <!-- <script scr="js/index.js" ></script> -->
-    <script src = "js/app/models/Negociacao.js"></script>
+    <script src = "js/app/models/Negociacao.js">
+
+        // //NOVA FORMA DE DECLARAÇÃO DE VARIÁVEL.
+        // //DECLARANDO A VARIÁVEL COM LET OS MESMOS SE TORNAM VARIAVEIS DE ESCOPO, COISA QUE NÃO ACONTECE 
+        // //QUANDO UTILIZAMOS VAR PARA DECLARAR.
+        // let nome = "Alan"
+        
+        let negociacao = new NegociacaoController();
+
+    
+    </script>
 </body>
 </html>
